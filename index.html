@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    
+    <style>
+       #resume-template{
+            font-family: Arial, sans-serif;
+            background-color:green;
+            padding:0;
+        }
+
+        
+        .resume_container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color:white;
+            color:black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+           height: 250px;
+           width: 700px; 
+           background-color:rgb(300,300,300,0.1);
+           color: black;
+           text-align:right;
+           padding: 10px 20px;
+           border-style:none; 
+           border-radius: 20px;
+           margin-right: auto;
+}
+        
+        .contact-info {
+            font-size: 16px;
+            margin-right: 20px;
+        }
+        
+       
+        
+        .section-title {
+            text-align:center;
+            background-color: rgb(300,300,300,0.1);
+            color: black;
+            padding:10px 0px;
+            border-radius: 10px;
+            border-style:solid;
+            
+        }
+        
+        .section-content {
+            text-align:center;
+            margin: 20px;
+            
+        }
+        
+        .skills {
+            margin-top: 10px;
+        }
+        
+        .skills ul {
+           
+            list-style: none;
+            padding: 0;
+        }
+        
+        .interests {
+            margin-top: 10px;
+        }
+        
+        .interests ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image:url("https://i.ibb.co/vw671jv/bgof-resume.webp");
+            background-repeat:no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .form_container {
+            max-width: 600px;
+            margin:0 auto;
+            
+            background-color:rgb(300,300,300,0.1);
+            padding: 30px;
+            border-radius: 50px;
+            box-shadow: 10px 20px 30px 10px rgba(50, 50, 50, 0.1);
+            cursor: pointer;
+            transition: transform 0.4s ease-in-out;
+        }
+       .form_container:hover {
+            transform: scale(1.1);
+            max-width: 600px;
+            margin: 0 auto;
+            background-color:rgb(300,300,300,0.1);
+            padding: 20px;
+            border-radius: 30px;
+            border-style:solid;
+            box-shadow: 10px 20px 30px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 70%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border-color:black;
+            border-radius: 20px;
+            box-sizing: border-box;
+            border-style:solid;
+            text-align:center;
+            
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select:hover {
+            
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border-color:blue;
+            border-radius: 20px;
+            box-sizing: border-box;
+            border-style:solid;
+            text-align:center;
+}
+        
+        input[type="button"] {
+            background-color: rgb(300,300,300,0.1);
+            color: black;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            border-style:solid;
+            cursor: pointer;
+            transition: transform 0.4s ease-in-out;
+        }
+       input[type="button"]:hover {
+            transform: scale(1.1);
+            background-color: royalblue;
+            color: white;
+            padding: 14px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            border-style:solid;
+            
+        }
+        
+        input[type="submit"]:hover {
+            background-color: green;
+            color:white;
+            border-radius:30px;
+            border-style:solid;
+        }
+        
+        #resume_template,#print{
+            display: none;
+        }
+
+        @media print {
+            body *{
+                display: auto;
+            }
+            #resume_template *{
+                display: block;
+                margin: 0;
+            }
+
+            p, h1, h2, h3 {
+                font-size: 12pt;
+            }
+            
+            .no-page-break {
+                page-break-inside: avoid;
+            }
+
+        }
+        @page {
+            size: A4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- form -->
+
+    <div class="form_container" id="resume_form">
+       <font face=" Cambria">
+        <h1 align="center"><b>Resume Builder</b></h1>
+<h1>================================</h1>
+        <form >
+            <label for="image">Profile Image:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+</br></br>
+            <label for="fullName"><h2>Full Name:</h2></label>
+            <input type="text" id="fullName" name="fullName" placeholder="--Name--" >
+
+            <label for="email"><h2>Email:</h2></label>
+            <input type="email" id="email" name="email" placeholder="@g-mail.com" >
+
+            <label for="phone"><h2>Phone:</h2></label>
+            <input type="text" id="phone" name="phone" placeholder="--Phone.Number--" >
+          
+            <label for="address"><h2>Address:</h2></label>
+            <input type="text" id="address" name="address"  placeholder="--Address--">
+<div class="ed" style="border-style:solid; border-radius:25px ; border-color:#456789;">
+            <label for="education"><h2>Education:</h2></label>
+            <input type="text" id="qualification" name="education" placeholder="qualification" >
+            <input type="text" id="university_name" name="education" placeholder="university_name">
+            <input type="text" id="location" name="education" placeholder="location">
+            <input type="text" id="graduate_year" name="education" placeholder="graduate_year">
+</div></br></br>
+<div class="ed" style="border-style:solid; border-radius:25px ; border-color:#456789n;">
+            <label for="experience"><h2>Work Experience:</h2></label>
+            <input type="text" id="job_title" name="experience" placeholder="job_title">
+            <input type="text" id="companyname" name="experience" placeholder="companyname">
+            <input type="text" id="company_location" name="experience" placeholder="company_location">
+            <input type="text" id="years-of-experience" name="experience" placeholder="years-of-experience">
+            <input type="text" id="achievements" name="experience" placeholder="achievements">
+            <input type="text" id="collaborated_on" name="experience" placeholder="collaborated_on">
+</div></br>
+</br>
+<div class="ed" style="border-style:solid; border-radius:25px ; border-color:#456789;">
+            <label for="skills"><h2>Skills:</h2></label>
+            <input type="text" id="skill1" name="skills" placeholder="skill1">
+            <input type="text" id="skill2" name="skills" placeholder="skill2">
+            <input type="text" id="skill3" name="skills" placeholder="skill3">
+</div></br></br>
+            <label for="interests"><h2>Interests:</h2></label>
+            <input type="text" id="interests" name="interests"  >
+
+            <input type="button" id="generate_resume" value="Generate Resume" onclick="generateResume()">
+        </form>
+    </div>
+
+    <!-- template -->
+    <div id="print">
+       
+        <div class="resume_container" id="resume_template" style="margin-top: 2rem; margin-right:auto; justify-content:center">
+            <div class="header">
+               <img id="header-image" src="placeholder.jpg" alt="Profile Image" align="left" height="250" width="250" style=" margin-left:auto; border-radius:360px;">
+  
+                <h1 id="p_name">Your Name</h1>
+                <p class="contact-info" >
+                   <h2>|| Phone:<span id="p_phone"> (123) 456-7890 </span>&nbsp;||</br>
+                      || Adress:<span id="p_address"></span>&nbsp;&nbsp;||
+                    Email:&nbsp;&nbsp;&nbsp;<span id="p_email"> your@email.com</span></h2>
+                </p>
+
+            </div>
+</br></br></br></BR>
+            
+            
+            
+            <div class="section" >
+                <div class="section-title">EDUCATION</div>
+                <div class="section-content">
+                    <font face="georgia">
+                    <p id="p_qualification">Bachelor of [Your Degree]</p>
+                    <p id="p_university_name">[University Name]</p>
+                    <p id="p_location">[Location]</p>
+                    </font>
+                    Graduated:<span id="graduate_year"> [Month Year]</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">EXPERIENCE</div>
+                <div class="section-content">
+                    <p id="p_job_title">Job Title</p>
+                    <p id="p_companyname">[Company Name]</p>
+                    <p id="p_company_location">[Location]</p>
+                    <p id="p_years-of-experience">[Month Year] - [Month Year]</p>
+                    Achieved: <span id="p_achievements">Achieved [Achievement 1]</span>
+                    Collaborated on <span id="p_collaborated_on"> [Project 1]</span>
+                
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">SKILLS</div>
+                <div class="section-content skills">
+                    <ul>
+                        <li id="p_skill1">Skill 1</li>
+                        <li id="p_skill2">Skill 2</li>
+                        <li id="p_skill3">Skill 3</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">INTERESTS</div>
+                <div class="section-content interests">
+                    <ul>
+                        <li id="p_interests">Interest 1</li>
+                    </ul>
+                </div>
+            </div>
+
+            
+        </div>
+        <input type="button" value="print Resume" onclick="print_resume()">
+        
+    </div>
+    <script>
+        function generateResume() {
+           
+            console.log("generateresume");
+            // Retrieve form data
+            //personal details
+             var selectedImage = document.getElementById("image").files[0];
+    if (selectedImage) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById("header-image").src = e.target.result;
+        };
+        reader.readAsDataURL(selectedImage);
+    }
+
+    // ... (your existing code)
+
+            document.getElementById("p_name").innerHTML = document.getElementById("fullName").value;
+            document.getElementById("p_phone").innerHTML = document.getElementById("phone").value;
+            document.getElementById("p_email").innerHTML = document.getElementById("email").value;
+           document.getElementById("p_address").innerHTML = document.getElementById("address").value;
+
+            //education
+            document.getElementById("p_qualification").innerHTML = document.getElementById("qualification").value;
+            document.getElementById("p_university_name").innerHTML = document.getElementById("university_name").value;
+            document.getElementById("p_location").innerHTML = document.getElementById("location").value;
+
+            //work experience
+            document.getElementById("p_job_title").innerHTML = document.getElementById("job_title").value;
+            document.getElementById("p_companyname").innerHTML = document.getElementById("companyname").value;
+            document.getElementById("p_company_location").innerHTML = document.getElementById("company_location").value;
+            document.getElementById("p_years-of-experience").innerHTML = document.getElementById("years-of-experience").value;
+            document.getElementById("p_achievements").innerHTML = document.getElementById("achievements").value;
+
+            //skills
+            document.getElementById("p_skill1").innerHTML = document.getElementById("skill1").value;
+            document.getElementById("p_skill2").innerHTML = document.getElementById("skill2").value;
+            document.getElementById("p_skill3").innerHTML = document.getElementById("skill3").value;
+
+            //interests
+            document.getElementById("p_interests").innerHTML = document.getElementById("interests").value;
+
+
+            //for block printing 
+            document.getElementById("resume_form").style.display='none';
+            document.getElementById("resume_template").style.display='block';
+            document.getElementById("print").style.display='block';
+
+        }
+
+        function print_resume(){
+
+            print();
+        }
+    </script>
+</body>
+
+</html>
